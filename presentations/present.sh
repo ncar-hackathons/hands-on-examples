@@ -10,6 +10,11 @@ EOF
 exit
 }
 
+if [[ $# -eq 0 ]]; then
+  echo "Must supply an argument!"
+  usage
+fi
+
 SERVE=
 while [[ $# -gt 0 ]]; do
   key="${1}"
