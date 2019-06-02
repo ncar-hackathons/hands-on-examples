@@ -12054,11 +12054,11 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dask-Delayed">Dask Delayed<a class="anchor-link" href="#Dask-Delayed">&#182;</a></h2><p><strong>Imagine a function:</strong></p>
+<h2 id="Dask-Delayed">Dask Delayed<a class="anchor-link" href="#Dask-Delayed">&#182;</a></h2><p>Imagine a function:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
    <span class="c1"># do computation, make a plot, etc.</span>
 </pre></div>
-<p><strong>Use <code>dask.delayed</code> to make <code>my_function</code> lazy and apply to large number (<code>N</code>) of inputs:</strong></p>
+<p>Use <code>dask.delayed</code> to make <code>my_function</code> lazy and apply to large number (<code>N</code>) of inputs:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -12066,7 +12066,8 @@ a.anchor-link {
     <span class="n">result_i</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">my_function</span><span class="p">)(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results_i</span><span class="p">)</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">results</span><span class="p">)</span>
+<span class="c1"># trigger computation of the results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">persist</span><span class="p">(</span><span class="o">*</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 
 </div>
