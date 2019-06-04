@@ -1,0 +1,14 @@
+name: presentations
+channels:
+  - conda-forge 
+dependencies:
+  - python=3.7
+  - rise 
+  - jupyterlab
+  - scipy
+  - numpy 
+  - xarray
+  - pip
+  - pip:
+    - jupyter-contrib-nbextensions
+  
